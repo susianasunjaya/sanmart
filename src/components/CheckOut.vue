@@ -7,8 +7,8 @@
         <v-container>
             <v-card>
                 <v-form class="pa-3">
-                    <v-text-field class="ml-5 mr-5" label="Nama Penerima" v-model="penerima" :rules="['Required']"></v-text-field>
-                    <v-text-field class="ml-5 mr-5" label="Alamat"  v-model="alamat" :rules="['Required']"></v-text-field>
+                    <v-text-field class="ml-5 mr-5" label="Nama Penerima" v-model="penerima" ></v-text-field>
+                    <v-text-field class="ml-5 mr-5" label="Alamat"  v-model="alamat"></v-text-field>
                     <!-- <v-btn class="btn mt-3" v-on:click="login()">Login</v-btn> -->
                 </v-form>
             </v-card>
@@ -76,9 +76,7 @@
 
                     v-on:click="ordernow(cart)"
                 >
-                    <!-- <router-link style="text-decoration: none; color: inherit;" to="/"> -->
                         ORDER NOW
-                    <!-- </router-link> -->
                 </v-btn>
                 
             </v-card>
@@ -139,6 +137,7 @@ export default {
                 alert('Please Fill Out The Shipping Address Form')
             }else{
                 var docData = {
+                    pengirim: localStorage.getItem("email"),
                     penerima: this.penerima,
                     alamat: this.alamat,
                     date: firebase.firestore.Timestamp.now(),
