@@ -6,7 +6,7 @@
       dark
     >
       <router-link style="text-decoration: none; color: inherit;" to="/">
-        <img class="mr-3" :src="require('C:/Users/acer/vue-project/sanmart/src/assets/sunmart_logo_white.png')" height="50"/>
+        <img class="mr-3" :src="require('assets/sunmart_logo_white.png')" height="50"/>
       </router-link>
         <!-- <v-app-bar-title><router-link style="text-decoration: none; color: inherit;" to="/">SANMART</router-link></v-app-bar-title> -->
 
