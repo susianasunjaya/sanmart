@@ -136,21 +136,22 @@ export default {
             if(this.penerima=="" || this.alamat==""){
                 alert('Please Fill Out The Shipping Address Form')
             }else{
-                var docData = {
+                db.collection("invoice").add({
                     pengirim: localStorage.getItem("email"),
                     penerima: this.penerima,
                     alamat: this.alamat,
                     date: firebase.firestore.Timestamp.now(),
                     cart: cart,
                     total:this.total
-                };
-                db.collection("invoice").doc().set(docData).then(() => {
+                })
+                .then(() => {
                     console.log("Document successfully written!");
+                    this.$router.push('/')
+
+                    location.reload()
                 });
 
                 alert('Thank You For Ordering :D')
-                this.$router.push('/')
-                location.reload()
 
             }
 
